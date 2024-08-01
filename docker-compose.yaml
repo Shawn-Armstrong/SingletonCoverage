@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  java17:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: java17_container
+    volumes:
+      - ./host_directory:/container_directory
+    working_dir: /container_directory
+    tty: true
