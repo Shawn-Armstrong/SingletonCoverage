@@ -36,12 +36,11 @@ Run the following commands:
 
 ### Background
 - Project contains `MySingletonBean.java` which implements the singleton pattern using the classical double check locking approach
-- The false branch of the nested null check is the only uncovered line
+- The false branch of the nested null check is the only uncovered line; flow is case 3
 
 <p align="center">
 <kbd><img src="https://gist.github.com/user-attachments/assets/ec3d97e8-1f69-4461-aa63-b83599c562fc" width="500"></kbd>
 </p>
-
 
 
 ### Case 1
@@ -89,7 +88,8 @@ sequenceDiagram
 ```
 
 ### Case 3
-- Two threads, both threads arrive at approximately the same time; thread1 reaches critical section first
+- Two threads, both threads arrive at critical section at approximately same time 
+- thread1 enters first, thread2 yields
 - This is the only case where the nested null check evaluates to false
     
 ```mermaid    
