@@ -15,6 +15,7 @@ Run the following commands:
 
     ```Cosnole
     git clone https://github.com/Shawn-Armstrong/SingletonCoverage
+    cd SingletonCoverage
     docker compose build
     docker compose up
     ```
