@@ -16,7 +16,11 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.0.1-jre'
+    
+    // Add Mockito for mocking
+    testImplementation 'org.mockito:mockito-core:4.0.0'
 }
+
 
 application {
     // Define the main class for the application.

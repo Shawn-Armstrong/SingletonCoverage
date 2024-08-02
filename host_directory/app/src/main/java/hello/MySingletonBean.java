@@ -2,9 +2,9 @@ package hello;
 
 public class MySingletonBean {
 
-    // Volatile to ensure visibility of changes across threads
     private static volatile MySingletonBean mySingletonBean = null;
     private String myContext = null;
+    private static final Object lock = new Object();
 
     private MySingletonBean() {
         // Intentionally left empty
@@ -12,7 +12,7 @@ public class MySingletonBean {
 
     public static MySingletonBean getInstance() {
         if (mySingletonBean == null) {
-            synchronized (MySingletonBean.class) {
+            synchronized (lock) {
                 if (mySingletonBean == null) {
                     mySingletonBean = new MySingletonBean();
                 }
@@ -21,9 +21,11 @@ public class MySingletonBean {
         return mySingletonBean;
     }
 
-    public String getContext() {
-        var context = "Hello";
-        myContext = context;
-        return context;
+    public synchronized String getContext() {
+        return myContext;
+    }
+
+    public synchronized void setContext(String context) {
+        this.myContext = context;
     }
 }
