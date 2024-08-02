@@ -9,4 +9,4 @@ services:
     volumes:
       - ./host_directory:/container_directory
     working_dir: /container_directory
-    tty: true
+
