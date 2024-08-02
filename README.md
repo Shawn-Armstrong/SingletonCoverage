@@ -14,7 +14,7 @@ Run the following commands:
 - Terminal 1
 
     ```Cosnole
-    git clone <my url>
+    git clone https://github.com/Shawn-Armstrong/SingletonCoverage
     docker compose build
     docker compose up
     ```
