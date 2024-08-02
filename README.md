@@ -39,9 +39,9 @@ Run the following commands:
 - Project contains `MySingletonBean.java` which implements the singleton pattern using the classical double check locking approach
 - The false branch of the nested null check is the only uncovered line
 
-<p align="center">
-<kbd><img src="https://gist.github.com/user-attachments/assets/ec3d97e8-1f69-4461-aa63-b83599c562fc" width="500"></kbd>
-</p>
+
+<kbd><img src="https://github.com/user-attachments/assets/d39471a4-e12c-4a71-a68b-2ea25432d550" width="500"></kbd>
+
 
 
 
