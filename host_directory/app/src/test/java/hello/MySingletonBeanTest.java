@@ -2,6 +2,7 @@ package hello;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.json.JSONObject;
 
 import java.lang.reflect.Field;
 
@@ -26,18 +27,24 @@ class MySingletonBeanTest {
     }
 
     @Test
-    void testSingletonInstance() {
+    void testGetInstance_givenMultipleInstances_expectSameObject() {
         MySingletonBean instance1 = MySingletonBean.getInstance();
         MySingletonBean instance2 = MySingletonBean.getInstance();
 
-        assertSame(instance1, instance2, "Instances should be the same");
+        assertSame(instance1, instance2, "Expected instances to be the same");
     }
 
     @Test
-    void testContextSetting() {
+    void testSetContextGetContext_givenValidContext_expectContext() {
         MySingletonBean instance = MySingletonBean.getInstance();
-        instance.setContext("Test Context");
 
-        assertEquals("Test Context", instance.getContext(), "Context should be set correctly");
+        JSONObject context = new JSONObject();
+        context.put("key", "Test Context");
+        instance.setContext(context);
+
+        // Retrieve the context and check if it matches
+        JSONObject retrievedContext = instance.getContext();
+        assertNotNull(retrievedContext, "Expected context to be non-null");
+        assertEquals("Test Context", retrievedContext.getString("key"), "Expected context to contain key");
     }
 }
