@@ -1,3 +1,4 @@
+# ./docker-compose.yaml
 version: '3.8'
 
 services:
@@ -7,6 +8,5 @@ services:
       dockerfile: Dockerfile
     container_name: java17_container
     volumes:
-      - ./host_directory:/container_directory
-    working_dir: /container_directory
-
+      - ./host_directory:/container_directory/host_directory
+    working_dir: /container_directory/host_directory
