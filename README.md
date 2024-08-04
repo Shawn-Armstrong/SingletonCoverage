@@ -41,8 +41,8 @@ Run the following commands:
 - Project contains `MySingletonBean.java` which implements the singleton pattern using the classical double check locking approach
 - The false branch of the nested null check is the only uncovered line; flow is case 3
 
-
-<kbd><img src="https://github.com/user-attachments/assets/d39471a4-e12c-4a71-a68b-2ea25432d550" width="500"></kbd>
+    
+  <kbd><img src="https://github.com/user-attachments/assets/d39471a4-e12c-4a71-a68b-2ea25432d550" width="500"></kbd>
 
 
 
