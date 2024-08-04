@@ -15,19 +15,22 @@ Run the following commands:
 
     ```Cosnole
     git clone https://github.com/Shawn-Armstrong/SingletonCoverage
+    cd SingletonCoverage
     docker compose build
     docker compose up
     ```
 
 - Terminal 2
+      
     ```console
     docker compose exec java17 sh
+    ./gradlew build
     ```
 
 ### Generate coverage report
 - Run tests and generate report with the following command:
     
-  ```
+  ```console
   ./gradlew test jacocoTestReport
   ```
 - Report is saved in `../app/build/jacocoHtml/index.html` and can be opened in any browser
@@ -44,7 +47,7 @@ Run the following commands:
 
 
 ### Case 1
-- Happy path with single thread
+- Trivial case with single thread representing happy path
   
 ```mermaid
 sequenceDiagram
@@ -64,7 +67,7 @@ sequenceDiagram
  ```
     
 ### Case 2
-- Two threads, thread1 finishes instantiation then thread2 arrives
+- Trivial case with two threads representing sequential execution
 
 ```mermaid
 sequenceDiagram
@@ -88,7 +91,7 @@ sequenceDiagram
 ```
 
 ### Case 3
-- Two threads, both threads arrive at critical section at approximately same time 
+- Contentious case, two threads that arrive at critical section at nearly identical times
 - thread1 enters first, thread2 yields
 - This is the only case where the nested null check evaluates to false
     
