@@ -1,31 +1,22 @@
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
-    // Apply the JaCoCo plugin to enable code coverage metrics.
     id 'jacoco'
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
-
-    // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.0.1-jre'
-    
-    // Add Mockito for mocking
-    testImplementation 'org.mockito:mockito-core:4.0.0'
-
     implementation 'org.json:json:20210307'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation 'org.mockito:mockito-core:4.0.0'
 }
 
 
 application {
-    // Define the main class for the application.
     mainClass = 'hello.App'
 }
 
@@ -39,7 +30,7 @@ tasks.withType(Test) {
 }
 
 jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
+    dependsOn test 
 
     reports {
         xml.required = true
